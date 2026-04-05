@@ -5,11 +5,12 @@
  
 # Project Title
  
-miniproject 3 is called StatTrack.
+miniproject 4 is called PocketLedger.
  
 ## Description
  
-TaskTrack is a task manager web app built with Python, Flask, SQLite, HTML templates, and Bootstrap. The purpose of this project is to allow users to register for an account, log in securely, create task categories, add tasks with descriptions and due dates, mark tasks as completed, and delete tasks when they are no longer needed.
+PocketLedger is my Django web app that helps users track their spending by creating categories, adding expenses, and viewing their expense data in one place.
+
  
 ## Getting Started
  
@@ -24,8 +25,12 @@ pip install -r requirement.txt
  
 ### Executing program
 
+In terminal, please type:
 ```
-python main.py
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
 ```
 
 ## Authors
@@ -35,14 +40,18 @@ Kevin Vasquez knvasquez@mail.fhsu.edu
 
  
 ## Version History
+* 0.7
+    * Added README, requirements file, and cleaned up project.
+* 0.6
+    * Added delete expense feature and Bootstrap modal.
 * 0.5
-    * Added README, requirements file, and final project cleanup
+    * Added register, login, and logout system.
 * 0.4
-    * Added Bootstrap styling and delete modal
+    * Added categories, summary, and profile pages.
 * 0.3
-    * Added task routes, categories, completed page, and profile page
+    * Added expense form, dashboard, URLs, and initial templates.
 * 0.2
-    * Added user registration and login system
+    * Added models and configured Django admin
 * 0.1
     * Initial Release
 
@@ -50,3 +59,8 @@ Kevin Vasquez knvasquez@mail.fhsu.edu
 ## Acknowledgments
  
 Inspiration, code snippets, etc.
+https://docs.djangoproject.com/en/4.2/
+https://django-debug-toolbar.readthedocs.io/en/latest/
+https://www.youtube.com/watch?v=HXByLeSaNUI&t=2611s
+https://www.youtube.com/watch?v=oHyFom8RLQY
+https://www.youtube.com/watch?v=_jwb1amaK9A
