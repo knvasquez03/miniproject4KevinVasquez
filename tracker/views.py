@@ -37,3 +37,35 @@ def add_expense(request):
         form.fields['category'].queryset = Category.objects.filter(user=request.user)
 
     return render(request, 'tracker/add_expense.html', {'form': form})
+
+@login_required
+def categories(request):
+    categories = Category.objects.filter(user=request.user)
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        if name:
+            Category.objects.create(name=name, user=request.user)
+            return redirect('categories')
+
+    return render(request, 'tracker/categories.html', {'categories': categories})
+
+
+@login_required
+def summary(request):
+    expenses = Expense.objects.filter(user=request.user)
+
+    total = sum(exp.amount for exp in expenses)
+
+    return render(request, 'tracker/summary.html', {'total': total})
+
+
+@login_required
+def profile(request):
+    total_expenses = Expense.objects.filter(user=request.user).count()
+    total_categories = Category.objects.filter(user=request.user).count()
+
+    return render(request, 'tracker/profile.html', {
+        'total_expenses': total_expenses,
+        'total_categories': total_categories
+    })
