@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "tracker/base.html" %}
 
-</body>
-</html>
+{% block content %}
+<h1>Welcome to PocketLedger</h1>
+<p>This is an expense tracker built with Django.</p>
+
+<a href="/dashboard/" class="btn btn-primary">Go to Dashboard</a>
+{% endblock %}
