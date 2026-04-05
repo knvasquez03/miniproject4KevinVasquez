@@ -4,7 +4,7 @@
 
 # Mini Project 4
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 
@@ -83,3 +83,12 @@ def profile(request):
         'total_categories': total_categories
     })
 
+@login_required
+def delete_expense(request, expense_id):
+    expense = get_object_or_404(Expense, id=expense_id, user=request.user)
+
+    if request.method == 'POST':
+        expense.delete()
+        return redirect('dashboard')
+
+    return redirect('dashboard')
